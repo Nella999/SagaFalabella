@@ -5,28 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saga Falabella</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <h1>
-        Saga Falabella
-    </h1>
-    
-    <div id = "categorias">
-        <div class="container">
-            <h2>
-             Categorías
-            </h2>
+    <div id="app">   
+        <h1>
+            Saga Falabella
+        </h1>
+        <div id = "categorias">
+            <div class="container">
+                <h2>
+                    Categorías
+                </h2>
+            </div>
+            <div class="container">
+                <ul>
+                    <li v-for="categoria in categorias" :key="categoria.id">
+                        <a :href="categoria.url" @click.prevent="seleccionarCategoria(categoria)">
+                            {{ categoria.nombre }}
+                        </a>
+                    </li>
+                </ul>
+            </div>   
         </div>
-        <div class="container">
-            <ul>
-                <li><a href="electronica.html">Electrónica</a></li>
-                <li><a href="moda.html">Moda</a></li>
-                <li><a href="hogar.html">Hogar</a></li>
-                <li><a href="deportes.html">Deportes</a></li>
-                <li><a href="juguetes.html">Juguetes</a></li>
-            </ul>
-        </div>   
-        
     </div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() { //MVVM
+                return {
+                    categorias: [
+                        { id: 1, nombre: 'Electrónica', url: 'electronica.html' },
+                        { id: 2, nombre: 'Moda', url: 'moda.html' },
+                        { id: 3, nombre: 'Hogar', url: 'hogar.html' },
+                        { id: 4, nombre: 'Deportes', url: 'deportes.html' },
+                        { id: 5, nombre: 'Juguetes', url: 'juguetes.html' }
+                    ]
+                }
+            },
+            //logica Model
+            methods: {
+                seleccionarCategoria(categoria) {
+                    console.log('Categoría seleccionada:', categoria.nombre);
+                   //Logica antes de navegar
+                    window.location.href = categoria.url;
+                }
+            },
+            mounted() {
+                console.log('Aplicación Vue cargada correctamente');
+            }
+        }).mount('#app');
+    </script>
 </body>
 </html>
