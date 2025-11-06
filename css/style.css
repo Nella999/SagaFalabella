@@ -77,8 +77,7 @@ h2{
     gap: 12px;
     justify-content: center;
     /* Evitar que los items (tarjetas) se estiren al tamaño del más alto
-       cuando uno de ellos expande su contenido (p. ej. al hacer "Ver más").
-       Por defecto align-items es 'stretch' en un contenedor flex. */
+       cuando uno de ellos expande su contenido */
     align-items: flex-start;
 }
 .producto {

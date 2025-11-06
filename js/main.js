@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // descripciones cortas no necesitan botón
             btn.style.display = 'none';
         } else {
-            // Attach listener that operates on the specific card where the click happened.
+            // detector de eventos para el botón 'Ver más'
             btn.addEventListener('click', (e) => {
                 const button = e.currentTarget;
                 const card = button.closest('.producto');
