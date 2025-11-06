@@ -76,8 +76,7 @@ h2{
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
-    /* Evitar que los items (tarjetas) se estiren al tamaño del más alto
-       cuando uno de ellos expande su contenido */
+    /* Evitar que los items (tarjetas) se estiren al tamaño del más alto cuando uno de ellos expande su contenido */
     align-items: flex-start;
 }
 .producto {
@@ -102,15 +101,12 @@ h2{
     color: var(--color-negro);
     margin: 6px 0 4px;
 }
+/* Descripción: estilo base y comportamiento colapsable */
 .descripcion {
     font-size: 14px;
     color: var(--color-gris-oscuro);
     margin: 0;
-}
-
-/* Colapsar la descripción por defecto y permitir expandirla */
-.descripcion {
-    max-height: 3.2em; /* aproximadamente 2 líneas */
+    max-height: 3.2em; /* aprox 2 líneas */
     overflow: hidden;
     transition: max-height 0.2s ease;
 }

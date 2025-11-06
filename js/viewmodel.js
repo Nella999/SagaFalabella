@@ -23,9 +23,14 @@ class ViewModel {
                 new Producto("Muñeca Barbie Viajera", "S/ 149.90", "img/muneca-barbie-viajera.jpg", `Muñeca Barbie Viajera con varios accesorios (maleta, mochila, cachorro, cámara, teléfono, entre otros). Colores y decoraciones pueden variar. Recomendado para niños mayores de 3 años; contiene piezas pequeñas.`) //cambiar dirrecion
             ]
         };
+        // Exponer un objeto compartido para que frameworks (Vue) puedan envolverlo en reactive() y observar cambios
+        window.appState = window.appState || {};
+        // Exponer solo la referencia a las categorías
+        window.appState.categorias = this.categorias;
     }
 
     obtenerProductos(categoria) {
         return this.categorias[categoria] || [];
     }
+
 }
